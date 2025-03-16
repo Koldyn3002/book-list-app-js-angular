@@ -1,0 +1,12 @@
+<div>
+  <h2>Список авторов</h2>
+  <ul>
+    <li *ngFor="let author of authors; let i = index">
+      {{ author }} <button (click)="editAuthor(i)">Редактировать</button>
+    </li>
+  </ul>
+  <div>
+    <input [(ngModel)]="newAuthor" placeholder="Новый автор">
+    <button (click)="addAuthor()">Добавить</button>
+  </div>
+</div>

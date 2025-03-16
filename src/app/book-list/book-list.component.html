@@ -1,0 +1,66 @@
+<div class="book-list-container">
+  <div class="filters">
+    <mat-form-field appearance="outline">
+      <mat-label>Минимальное количество страниц</mat-label>
+      <input
+        matInput
+        type="number"
+        [(ngModel)]="minPages"
+        (ngModelChange)="filterBooks()"
+      />
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>Максимальное количество страниц</mat-label>
+      <input
+        matInput
+        type="number"
+        [(ngModel)]="maxPages"
+        (ngModelChange)="filterBooks()"
+      />
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>Жанр</mat-label>
+      <mat-select [(ngModel)]="selectedGenre" (ngModelChange)="filterBooks()">
+        <mat-option *ngFor="let genre of getUniqueGenres()" [value]="genre">
+          {{ genre }}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>Автор</mat-label>
+      <input
+        matInput
+        [(ngModel)]="selectedAuthor"
+        (ngModelChange)="filterBooks()"
+        placeholder="Введите автора"
+      />
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>Язык</mat-label>
+      <mat-select [(ngModel)]="selectedLanguage" (ngModelChange)="filterBooks()">
+        <mat-option *ngFor="let language of languages" [value]="language">
+          {{ language }}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+  </div>
+
+  <div class="books">
+    <mat-card *ngFor="let book of filteredBooks" class="book-item">
+      <mat-card-header>
+        <mat-card-title>{{ book.title }}</mat-card-title>
+        <mat-card-subtitle>Автор: {{ book.author }}</mat-card-subtitle>
+      </mat-card-header>
+      <mat-card-content>
+        <p>Описание: {{ book.description }}</p>
+        <p>Страниц: {{ book.pages }}</p>
+        <p>Язык: {{ book.language }}</p>
+        <p>Жанр: {{ book.genre }}</p>
+      </mat-card-content>
+    </mat-card>
+  </div>
+</div>

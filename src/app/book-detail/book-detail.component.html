@@ -1,0 +1,15 @@
+<mat-card class="detail-card">
+    <mat-card-header>
+      <mat-card-title>{{ book.title }}</mat-card-title>
+      <mat-card-subtitle>{{ book.author }}</mat-card-subtitle>
+    </mat-card-header>
+    <mat-card-content>
+      <p><strong>Страниц:</strong> {{ book.pages }}</p>
+      <p><strong>Язык:</strong> {{ book.language }}</p>
+      <p><strong>Жанр:</strong> {{ book.genre }}</p>
+      <p><strong>Описание:</strong> {{ book.description }}</p>
+    </mat-card-content>
+    <mat-card-actions>
+      <button mat-raised-button color="primary" (click)="goBack()">Назад к списку</button>
+    </mat-card-actions>
+  </mat-card>
